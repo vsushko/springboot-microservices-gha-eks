@@ -1,0 +1,30 @@
+spring:
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      hbm2ddl:
+        auto: create
+  h2:
+    console:
+      enabled: true
+
+order-service:
+  customerServiceUrl: http://localhost:8081/customer/api/v1/customers/
+  productServiceUrl: http://localhost:8080/product/api/v1/products/
+
+springdoc:
+  swagger-ui:
+    path: /
+  enable-native-support: true
+
+server:
+  port: 8082
